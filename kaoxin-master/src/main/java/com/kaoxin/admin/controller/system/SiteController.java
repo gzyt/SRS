@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * <p>
  *  前端控制器
  * </p>
-
+*/
 @Controller
 @RequestMapping("/admin/system/site")
 public class SiteController extends BaseController{

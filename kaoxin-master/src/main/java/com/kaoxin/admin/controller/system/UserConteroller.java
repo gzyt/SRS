@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-
+//人员管理
 @Controller
 @RequestMapping("admin/system/user")
 public class UserConteroller extends BaseController{
@@ -58,7 +58,7 @@ public class UserConteroller extends BaseController{
         userLayerData.setData(userPage.getRecords());
         return  userLayerData;
     }
-
+    //管理员添加
     @GetMapping("add")
     public String add(Model model){
         List<Role> roleList = roleService.selectAll();
@@ -99,7 +99,7 @@ public class UserConteroller extends BaseController{
         userService.saveUserRoles(user.getId(),user.getRoleLists());
         return RestResponse.success();
     }
-
+    //管理员修改
     @GetMapping("edit")
     public String edit(Long id,Model model){
         User user = userService.findUserById(id);
@@ -164,7 +164,7 @@ public class UserConteroller extends BaseController{
         userService.saveUserRoles(user.getId(),user.getRoleLists());
         return RestResponse.success();
     }
-
+    //管理员删除
     @RequiresPermissions("sys:user:delete")
     @PostMapping("delete")
     @ResponseBody

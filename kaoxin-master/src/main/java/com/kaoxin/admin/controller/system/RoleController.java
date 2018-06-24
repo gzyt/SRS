@@ -78,7 +78,7 @@ public class RoleController extends BaseController{
         }
         return roles;
     }
-
+   //角色添加
     @GetMapping("add")
     public String add(Model model){
         Map<String,Object> map = Maps.newHashMap();
@@ -103,7 +103,7 @@ public class RoleController extends BaseController{
         roleService.saveRole(role);
         return RestResponse.success();
     }
-
+    //角色修改
     @GetMapping("edit")
     public String edit(Long id,Model model){
         Role role = roleService.getRoleById(id);
@@ -146,13 +146,14 @@ public class RoleController extends BaseController{
         roleService.updateRole(role);
         return RestResponse.success();
     }
-
+    //角色删除
     @RequiresPermissions("sys:role:delete")
     @PostMapping("delete")
     @ResponseBody
     @SysLog("删除角色数据")
     public RestResponse delete(@RequestParam(value = "id",required = false)Long id){
         if(id == null || id == 0){
+        	
             return RestResponse.failure("角色ID不能为空");
         }
         Role role = roleService.getRoleById(id);

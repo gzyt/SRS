@@ -39,7 +39,7 @@ public class MenuController extends BaseController{
         LOGGER.info(JSONObject.toJSONString(ztreeVOs));
         return RestResponse.success().setData(ztreeVOs);
     }
-
+    //菜单权限列表
     @RequiresPermissions("sys:menu:list")
     @PostMapping("treelist")
     @ResponseBody
@@ -58,7 +58,7 @@ public class MenuController extends BaseController{
         }
         return "admin/system/menu/add";
     }
-
+    //权限添加
     @RequiresPermissions("sys:menu:add")
     @PostMapping("add")
     @ResponseBody
@@ -104,7 +104,7 @@ public class MenuController extends BaseController{
         menuService.saveOrUpdateMenu(menu);
         return RestResponse.success();
     }
-
+    //权限修改
     @GetMapping("edit")
     public String edit(Long id,Model model){
         Menu menu = menuService.selectById(id);
@@ -142,7 +142,7 @@ public class MenuController extends BaseController{
         menuService.saveOrUpdateMenu(menu);
         return RestResponse.success();
     }
-
+    //权限删除
     @RequiresPermissions("sys:menu:delete")
     @PostMapping("delete")
     @ResponseBody
